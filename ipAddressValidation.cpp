@@ -22,7 +22,7 @@ string get_address_part(const string& ip, int part) {
 
 // Function for checking the correctness of octomet
 bool is_valid_octet(const string& octet) {
-    //Check the length of the octomet
+    // Check the length of the octomet
     if (octet.length() == 0 || octet.length() > 3) {
         return false;
     }
@@ -44,7 +44,7 @@ bool is_valid_octet(const string& octet) {
     return value >= 0 && value <= 255;
 }
 
-//The main function for checking the IP address
+// The main function for checking the IP address
 bool is_valid_ip(const string& ip) {
     // We check that the line is not empty and does not end at the point
     if (ip.empty() || ip.back() == '.') {
@@ -58,8 +58,8 @@ bool is_valid_ip(const string& ip) {
         }
     }
     
-    //We check that there were 4 octeth
-    return get_address_part(ip, 4).empty(); //If the fifth octet exists, the address is incorrect
+    // We check that there were 4 octeth
+    return get_address_part(ip, 4).empty(); // If the fifth octet exists, the address is incorrect
 }
 
 int main() {
@@ -68,7 +68,7 @@ int main() {
     cout << "Enter an IPv4 address: ";
     cin >> ip;
 
-    //Check the correctness of the IP address and display the result
+    // Check the correctness of the IP address and display the result
     if (is_valid_ip(ip)) {
         cout << "Valid" << endl;
     } else {
