@@ -43,3 +43,21 @@ bool is_valid_octet(const string& octet) {
     int value = stoi(octet);
     return value >= 0 && value <= 255;
 }
+
+//The main function for checking the IP address
+bool is_valid_ip(const string& ip) {
+    // We check that the line is not empty and does not end at the point
+    if (ip.empty() || ip.back() == '.') {
+        return false;
+    }
+
+    for (int i = 0; i < 4; ++i) {
+        string octet = get_address_part(ip, i);
+        if (!is_valid_octet(octet)) {
+            return false; // If at least one octet is incorrect, we return false
+        }
+    }
+    
+    //We check that there were 4 octeth
+    return get_address_part(ip, 4).empty(); //If the fifth octet exists, the address is incorrect
+}
