@@ -61,3 +61,19 @@ bool is_valid_ip(const string& ip) {
     //We check that there were 4 octeth
     return get_address_part(ip, 4).empty(); //If the fifth octet exists, the address is incorrect
 }
+
+int main() {
+    string ip;
+
+    cout << "Enter an IPv4 address: ";
+    cin >> ip;
+
+    //Check the correctness of the IP address and display the result
+    if (is_valid_ip(ip)) {
+        cout << "Valid" << endl;
+    } else {
+        cout << "Invalid" << endl;
+    }
+
+    return 0;
+}
